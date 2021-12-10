@@ -1,1 +1,5 @@
-Ignore flow chart
+#Ignore flow chart
+Flow-Charts/
+
+#Ignore README.md
+README.md
