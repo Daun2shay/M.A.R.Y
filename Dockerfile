@@ -1,8 +1,11 @@
 # set base image of host
 FROM python:3.8
 
+
 # sets the working directory in the container
 WORKDIR /Code
+
+COPY IO.py io.py
 
 COPY requirements.txt requirements.txt
 
