@@ -6,9 +6,9 @@ FROM python:3.8
 WORKDIR /Code
 
 #Copy files
-COPY IO.py code.py
+COPY core.py core.py
 COPY requirements.txt requirements.txt
-COPY 
+COPY run.py run.py
 
 # install dependencies
 RUN pip install -r requirements.txt
@@ -16,4 +16,4 @@ RUN pip install -r requirements.txt
 ENTRYPOINT [ "/bin/bash", "-l", "-c" ]
 
 # command to run on container start
-CMD [ "python", "./code.py"]
+CMD [ "python", "./run.py"]
