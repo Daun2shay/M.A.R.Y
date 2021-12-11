@@ -5,12 +5,15 @@ FROM python:3.8
 # sets the working directory in the container
 WORKDIR /Code
 
-COPY IO.py io.py
-
+#Copy files
+COPY IO.py code.py
 COPY requirements.txt requirements.txt
+COPY 
 
 # install dependencies
-RUN pip3 install -r requirements.txt
+RUN pip install -r requirements.txt
+
+ENTRYPOINT [ "/bin/bash", "-l", "-c" ]
 
 # command to run on container start
-CMD [ "python3", "./io.py" ]
+CMD [ "python", "./code.py"]
