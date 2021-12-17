@@ -1,7 +1,6 @@
 # set base image of host
 FROM python:3.8
 
-
 # sets the working directory in the container
 WORKDIR /Code
 
@@ -11,6 +10,7 @@ COPY input.py /Code/input.py
 COPY run.py /Code/run.py
 COPY voiceInteractions.py /Code/voiceInteractions.py
 COPY logFile.txt  /Code/logFile.txt
+COPY requirements.txt /Code/requirements.txt
 
 # install dependencies
 RUN pip install -r requirements.txt
