@@ -1,20 +1,6 @@
 #!/usr/bin/env python3
 import datetime;
 import random;
-import pyttsx3;
-import speech_recognition as sr;
-
-# Initialize the recognizer
-r = sr.Recognizer()
-
-# Function to convert text to
-# speech
-def SpeakText(command):
-
-    # Initialize the engine
-    engine = pyttsx3.init()
-    engine.say(command)
-    engine.runAndWait()
 
 # Area to store the various responses M.A.R.Y. will call depending on where the user is
 
@@ -59,8 +45,8 @@ def default():
 # Function to handle the different questions
 def questionSwitch(question):
     questions={
-        'what time is it?': whatTime,
-        'can you multiply two numbers?': calcMult,
+        'what time is it': whatTime,
+        'can you multiply two numbers': calcMult,
     }
     return questions.get(question, default)()
 
