@@ -67,3 +67,8 @@ def questionSwitch(question):
 # Part that takes the input and takes you to a question
 question = input(random.choice(gResponseList))
 questionSwitch(question)
+
+# Part that logs user input to a file
+f = open('LogFile.txt', 'a')
+f.write(question + "\n")
+f.close()
