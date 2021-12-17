@@ -3,5 +3,4 @@
 # bring in functions
 from input import *
 
-
 startPrompt()
