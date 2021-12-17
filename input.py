@@ -1,19 +1,20 @@
 #!/usr/bin/env python3
+from voiceInteractions import *
 import datetime;
 import random;
 
 # Area to store the various responses M.A.R.Y. will call depending on where the user is
 
 # Generic initial greeting list
-gResponseList = ["Please ask M.A.R.Y. a question: ",
+gResponseList = ["Please ask MARY a question: ",
     "Hi! I'm M.A.R.Y. ask me any question! ",
-    "Welcome to the Movie-like Artificial-inteligence RepositorY AKA M.A.R.Y.\nPlease ask the system a question: ",
+    "Welcome to the Movie-like Artificial-inteligence RepositorY AKA MARY\nPlease ask the system a question: ",
     "Hello, ask a question and you shall receive your answer: ",
-    "You've started M.A.R.Y., please enter a question: "]
+    "You've started MARY, please enter a question: "]
 
 # Generic question unavailable responses
 qUnavailResponse = ["Not an available question.",
-    "Unfortunately, M.A.R.Y. does not support that question yet.",
+    "Unfortunately, MARY does not support that question yet.",
     "Our developers are currently hard at work to add this question to our system.\nSadly, I cannot answer it yet.",
     "I cannot answer that question yet, please ask me something else!"]
 
@@ -21,26 +22,38 @@ qAvailResponse = ["Yes!",
     "Absolutely I can!",
     "You have asked, and so I shall answer",
     "Processing.....",
-    "Accessing M.A.R.Y. database..."]
+    "Accessing MARY database..."]
 
 # Different questions
 # Function for what the current time is
 def whatTime():
-    print(random.choice(qAvailResponse))
+    resp = random.choice(qAvailResponse)
+    sayText(resp)
+    print(resp)
     localtime = datetime.datetime.now()
-    print("Local current time " + localtime.strftime("%Y-%m-%d %H:%M:%S"))
+    timeString = "Local current time is " + localtime.strftime("%Y-%m-%d %H:%M")
+    sayText(timeString)
+    print(timeString)
 
 # Function for calculating 2 digit multiplication
 def calcMult():
-    print(random.choice(qAvailResponse))
+    resp = random.choice(qAvailResponse)
+    sayText(resp)
+    print(resp)
+    sayText('Please enter operator 1: ')
     op1 = int(input('Please enter operator 1: '))
+    sayText('Please enter operator 2: ')
     op2 = int(input('Please enter operator 2: '))
     answer = op1*op2
-    print("The answer is : " + str(answer))
+    answerString = "The answer is : " + str(answer)
+    sayText(answerString)
+    print(answerString)
 
 # Response to an unavailable question
 def default():
-    print(random.choice(qUnavailResponse))
+    qUnavailString = random.choice(qUnavailResponse)
+    sayText(qUnavailString)
+    print(qUnavailString)
 
 # Function to handle the different questions
 def questionSwitch(question):
@@ -52,5 +65,7 @@ def questionSwitch(question):
 
 # Part that takes the input and takes you to a question
 def startPrompt():
-    question = input(random.choice(gResponseList))
+    prompt = random.choice(gResponseList)
+    sayText(prompt)
+    question = input(prompt)
     questionSwitch(question)
