@@ -54,3 +54,8 @@ def questionSwitch(question):
 def startPrompt():
     question = input(random.choice(gResponseList))
     questionSwitch(question)
+
+# Part that takes the input and takes you to a question
+def startPrompt():
+    question = input(random.choice(gResponseList))
+    questionSwitch(question)
