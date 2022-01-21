@@ -65,6 +65,7 @@ def wordDefine():
     word = dic.meaning(query)
 
     for state in word:
+        storeAnswer(word[state])
         print(word[state])
         sayText('The meaning of the word is' + str(word[state]))
 
