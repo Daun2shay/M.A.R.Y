@@ -45,6 +45,7 @@ def calcMult():
     print(resp)
     sayText('Please enter operator 1: ')
     op1 = int(input('Please enter operator 1: '))
+    storeAnswer(op1)
     sayText('Please enter operator 2: ')
     op2 = int(input('Please enter operator 2: '))
     answer = op1*op2
@@ -58,7 +59,9 @@ def wordDefine():
     sayText(resp)
     print(resp)
     sayText('Please tell me the word you would like me to define: ')
-    op1 = input('Please tell me the word you would like me to define: ')
+    print('Please tell me the word you would like me to define: ')
+    print(dictionary.meaning('tree'))
+    op1 = str(input())
     print(op1)
     answer = dictionary.meaning(op1)
     sayText(answer)
