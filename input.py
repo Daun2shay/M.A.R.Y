@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 from voiceInteractions import *
+from log import *
 import datetime;
 import random;
+
 
 # Area to store the various responses M.A.R.Y. will call depending on where the user is
 
