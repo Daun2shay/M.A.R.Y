@@ -25,3 +25,10 @@ qAvailResponse = ["Yes!",
     "You have asked, and so I shall answer",
     "Processing.....",
     "Accessing MARY database..."]
+
+# Part that takes the input and takes you to a question
+def startPrompt():
+    prompt = random.choice(gResponseList)
+    sayText(prompt)
+    question = input(prompt)
+    questionSwitch(question)

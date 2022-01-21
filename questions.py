@@ -1,4 +1,9 @@
-# Different questions
+from voiceInteractions import *
+from log import *
+from PyDictionary import PyDictionary
+import datetime;
+import random;
+
 # Function for what the current time is
 def whatTime():
     resp = random.choice(qAvailResponse)
