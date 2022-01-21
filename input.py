@@ -4,9 +4,11 @@ from log import *
 from PyDictionary import PyDictionary
 import datetime;
 import random;
+import operator
+
 
 # Area to store the various responses M.A.R.Y. will call depending on where the user is
-
+#######################################################################################
 # Generic initial greeting list
 gResponseList = ["Please ask MARY a question: ",
     "Hi! I'm M.A.R.Y. ask me any question! ",
@@ -27,6 +29,8 @@ qAvailResponse = ["Yes!",
     "Processing.....",
     "Accessing MARY database..."]
 
+# Different functions for M.A.R.Y. to answer
+#######################################################################################
 # Function for what the current time is
 def whatTime():
     resp = random.choice(qAvailResponse)
@@ -43,13 +47,31 @@ def calcMult():
     resp = random.choice(qAvailResponse)
     print(resp)
     sayText(resp)
-    print('Please enter operator 1:')
-    sayText('Please enter operator 1: ')
-    op1 = int(voiceToVar())
-    print('Please enter operator 2:')
-    sayText('Please enter operator 2: ')
-    op2 = int(voiceToVar())
-    answer = op1*op2
+    print('Please tell me your calculation: ')
+    sayText('Please tell me your calculation: ')
+
+    operation = voiceToVar()
+    print(operation)
+
+    def getOperatorFn(op):
+        return {
+        '+' : operator.add,
+        '-' : operator.sub,
+        'x' : operator.mul,
+        '*' : operator.mul,
+        'divided' : operator.__truediv__,
+        '/' : operator.__truediv__,
+        'Mod' : operator.mod,
+        'mod' : operator.mod,
+        '^' : operator.xor,
+        }[op]
+
+    def evalBinaryExpr(op1, oper, op2):
+        op1, op2 = int(op1), int(op2)
+        return getOperatorFn(oper) (op1, op2)
+
+    answer = evalBinaryExpr(*(operation.split()))
+
     answerString = "The answer is : " + str(answer)
     print(answerString)
     sayText(answerString)
@@ -78,15 +100,19 @@ def default():
     print(qUnavailString)
     storeAnswer(qUnavailString)
 
+# Handling the prompts and question
+################################################################################
 # Function to handle the different questions
 def questionSwitch(question):
     questions={
         'what time is it': whatTime,
-        'can you multiply two numbers': calcMult,
+        'can you perform a calculation': calcMult,
         'can you define a word': wordDefine,
     }
     return questions.get(question, default)()
 
+# Start of the program
+################################################################################
 # Part that takes the input and takes you to a question
 def startPrompt():
     prompt = random.choice(gResponseList)
