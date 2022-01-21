@@ -2,7 +2,6 @@
 from voiceInteractions import *
 from log import *
 from PyDictionary import PyDictionary
-dictionary=PyDictionary()
 import datetime;
 import random;
 
@@ -55,17 +54,18 @@ def calcMult():
 
 # Function for defining words
 def wordDefine():
+    dic = PyDictionary()
     resp = random.choice(qAvailResponse)
     sayText(resp)
     print(resp)
     sayText('Please tell me the word you would like me to define: ')
     print('Please tell me the word you would like me to define: ')
-    print(dictionary.meaning('tree'))
-    op1 = str(input())
-    print(op1)
-    answer = dictionary.meaning(op1)
-    sayText(answer)
-    print(answer)
+    query = str(input())
+    word = dic.meaning(query)
+
+    for state in word:
+        print(word[state])
+        sayText('The meaning of the word is' + str(word[state]))
 
 # Response to an unavailable question
 def default():
