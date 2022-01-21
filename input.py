@@ -2,6 +2,7 @@
 from voiceInteractions import *
 from log import *
 from PyDictionary import PyDictionary
+dic = PyDictionary()
 import datetime;
 import random;
 import operator
@@ -79,13 +80,12 @@ def calcMult():
 
 # Function for defining words
 def wordDefine():
-    dic = PyDictionary()
     resp = random.choice(qAvailResponse)
     sayText(resp)
     print(resp)
     sayText('Please tell me the word you would like me to define: ')
     print('Please tell me the word you would like me to define: ')
-    query = str(voiceToVar)
+    query = str(voiceToVar())
     word = dic.meaning(query)
 
     for state in word:

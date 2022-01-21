@@ -2,6 +2,7 @@
 # import
 import pyttsx3
 import speech_recognition as sr
+import time
 
 # do some initialization
 r = sr.Recognizer()
