@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 from voiceInteractions import *
 from log import *
+from PyDictionary import PyDictionary
+dictionary=PyDictionary()
 import datetime;
 import random;
-
 
 # Area to store the various responses M.A.R.Y. will call depending on where the user is
 
@@ -51,6 +52,18 @@ def calcMult():
     sayText(answerString)
     print(answerString)
 
+# Function for defining words
+def wordDefine():
+    resp = random.choice(qAvailResponse)
+    sayText(resp)
+    print(resp)
+    sayText('Please tell me the word you would like me to define: ')
+    op1 = input('Please tell me the word you would like me to define: ')
+    print(op1)
+    answer = dictionary.meaning(op1)
+    sayText(answer)
+    print(answer)
+
 # Response to an unavailable question
 def default():
     qUnavailString = random.choice(qUnavailResponse)
@@ -62,6 +75,7 @@ def questionSwitch(question):
     questions={
         'what time is it': whatTime,
         'can you multiply two numbers': calcMult,
+        'can you define a word': wordDefine,
     }
     return questions.get(question, default)()
 
@@ -70,9 +84,4 @@ def startPrompt():
     prompt = random.choice(gResponseList)
     sayText(prompt)
     question = input(prompt)
-    questionSwitch(question)
-
-# Part that takes the input and takes you to a question
-def startPrompt():
-    question = input(random.choice(gResponseList))
     questionSwitch(question)
