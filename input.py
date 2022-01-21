@@ -37,6 +37,7 @@ def whatTime():
     timeString = "Local current time is " + localtime.strftime("%Y-%m-%d %H:%M")
     sayText(timeString)
     print(timeString)
+    storeAnswer(timeString)
 
 # Function for calculating 2 digit multiplication
 def calcMult():
@@ -45,13 +46,13 @@ def calcMult():
     print(resp)
     sayText('Please enter operator 1: ')
     op1 = int(input('Please enter operator 1: '))
-    storeAnswer(op1)
     sayText('Please enter operator 2: ')
     op2 = int(input('Please enter operator 2: '))
     answer = op1*op2
     answerString = "The answer is : " + str(answer)
     sayText(answerString)
     print(answerString)
+    storeAnswer(answerString)
 
 # Function for defining words
 def wordDefine():
@@ -72,6 +73,7 @@ def default():
     qUnavailString = random.choice(qUnavailResponse)
     sayText(qUnavailString)
     print(qUnavailString)
+    storeAnswer(qUnavailString)
 
 # Function to handle the different questions
 def questionSwitch(question):
