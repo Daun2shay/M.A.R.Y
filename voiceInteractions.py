@@ -7,16 +7,11 @@ import speech_recognition as sr
 r = sr.Recognizer()
 mic = sr.Microphone()
 
-with mic as source:
-    print('Talk')
-    r.adjust_for_ambient_noise(source)
-    audio_text = r.listen(source)
-    print("Time over, thanks")
-
-try:
-    print("Text: " + r.recognize_google(audio_text))
-except:
-    print("Sorry, I did not get that.")
+def voiceToVar():
+    with mic as source:
+        r.adjust_for_ambient_noise(source)
+        audio_text = r.listen(source)
+        return r.recognize_google(audio_text)
 
 engine = pyttsx3.init()
 engine.setProperty('voice', 'com.apple.speech.synthesis.voice.samantha')

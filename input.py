@@ -41,16 +41,18 @@ def whatTime():
 # Function for calculating 2 digit multiplication
 def calcMult():
     resp = random.choice(qAvailResponse)
-    sayText(resp)
     print(resp)
+    sayText(resp)
+    print('Please enter operator 1:')
     sayText('Please enter operator 1: ')
-    op1 = int(input('Please enter operator 1: '))
+    op1 = int(voiceToVar())
+    print('Please enter operator 2:')
     sayText('Please enter operator 2: ')
-    op2 = int(input('Please enter operator 2: '))
+    op2 = int(voiceToVar())
     answer = op1*op2
     answerString = "The answer is : " + str(answer)
-    sayText(answerString)
     print(answerString)
+    sayText(answerString)
     storeAnswer(answerString)
 
 # Function for defining words
@@ -61,7 +63,7 @@ def wordDefine():
     print(resp)
     sayText('Please tell me the word you would like me to define: ')
     print('Please tell me the word you would like me to define: ')
-    query = str(input())
+    query = str(voiceToVar)
     word = dic.meaning(query)
 
     for state in word:
@@ -89,13 +91,7 @@ def questionSwitch(question):
 def startPrompt():
     prompt = random.choice(gResponseList)
     sayText(prompt)
-    question = input(prompt)
-    questionSwitch(question)
-
-
-# Part that takes the input and takes you to a question
-def startPrompt():
-    prompt = random.choice(gResponseList)
-    sayText(prompt)
-    question = input(prompt)
+    print(prompt)
+    question = voiceToVar()
+    print(question)
     questionSwitch(question)
