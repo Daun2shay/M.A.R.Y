@@ -141,7 +141,7 @@ def questionSwitch(question):
 
         # Word wordDefine
         "can you define a word": wordDefine,
-        
+
     }
     return questions.get(question, default)()
 
@@ -149,10 +149,7 @@ def questionSwitch(question):
 ################################################################################
 # Part that takes the input and takes you to a question
 
-<<<<<<< HEAD
 
-=======
->>>>>>> 22e7eca2f96922ec84cc1b54d2a0b2e51c6238d3
 def startPrompt():
     prompt = random.choice(gResponseList)
 
