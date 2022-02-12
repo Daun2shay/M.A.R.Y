@@ -114,10 +114,20 @@ def questionSwitch(question):
 # Start of the program
 ################################################################################
 # Part that takes the input and takes you to a question
+
+
 def startPrompt():
     prompt = random.choice(gResponseList)
-    sayText(prompt)
-    print(prompt)
-    question = voiceToVar()
-    print(question)
-    questionSwitch(question)
+
+    WAKE = "hello there"
+    print('Start')
+
+    while True:
+        print('Listening...')
+        text = voiceToVar()
+
+        if text.count(WAKE) > 0:
+            sayText(prompt)
+            print(prompt)
+            text = voiceToVar()
+            questionSwitch(text)
