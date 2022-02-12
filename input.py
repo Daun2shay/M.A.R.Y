@@ -38,10 +38,21 @@ def whatTime():
     sayText(resp)
     print(resp)
     localtime = datetime.datetime.now()
-    timeString = "Local current time is " + localtime.strftime("%Y-%m-%d %H:%M")
+    timeString = "Local current time is " + localtime.strftime("%H:%M")
     sayText(timeString)
     print(timeString)
     storeAnswer(timeString)
+
+# Function for what is todays date
+def whatDate():
+    resp = random.choice(qAvailResponse)
+    print(resp)
+    sayText(resp)
+    localDate = datetime.datetime.now()
+    dateString = "Today is " + localDate.strftime("%A %d. %B %Y")
+    sayText(dateString)
+    print(dateString)
+    storeAnswer(dateString)
 
 # Function for calculating 2 digit multiplication
 def calcMult():
@@ -105,9 +116,32 @@ def default():
 # Function to handle the different questions
 def questionSwitch(question):
     questions={
-        'what time is it': whatTime,
-        'can you perform a calculation': calcMult,
-        'can you define a word': wordDefine,
+
+        # Calculation calcMult
+        "can you perform a calculation": calcMult,
+
+        # Date whatDate
+        "what is today": whatDate,
+        "what is the date": whatDate,
+        "what is today's date": whatDate,
+        "what's today": whatDate,
+        "what's today date": whatDate,
+        "date": whatDate,
+
+        # Time whatTime
+        "what time is it": whatTime,
+        "what's the current time": whatTime,
+        "what is the current time": whatTime,
+        "what is the time": whatTime,
+        "time": whatTime,
+        "what's the time": whatTime,
+        "is the time": whatTime,
+        "time is it": whatTime,
+        "current time": whatTime,
+
+        # Word wordDefine
+        "can you define a word": wordDefine,
+        
     }
     return questions.get(question, default)()
 
@@ -115,7 +149,10 @@ def questionSwitch(question):
 ################################################################################
 # Part that takes the input and takes you to a question
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 22e7eca2f96922ec84cc1b54d2a0b2e51c6238d3
 def startPrompt():
     prompt = random.choice(gResponseList)
 
